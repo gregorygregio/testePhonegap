@@ -5,7 +5,7 @@ function onDeviceReady() {
 	console.log("device ready");
 
 	jQuery("#testeApi").click(function(){
-		var root = 'https://jsonplaceholder.typicode.com';
+		var root = 'https://jsonplaceholder.typicod.com';
 
 		jQuery.ajax({
 		  url: root + '/posts/1',
@@ -18,6 +18,8 @@ function onDeviceReady() {
 			},
 			error:function (err) {
 				alert("Ocorreu um erro");
+				
+				jQuery("#testeSpan").text(JSON.stringify(err))
 			}
 		})
 
