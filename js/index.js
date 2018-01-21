@@ -15,6 +15,9 @@ function onDeviceReady() {
 			success: function(data){
 				console.log(data);
 				jQuery("#testeSpan").text(data.body)
+			},
+			error:function (err) {
+				alert("Ocorreu um erro");
 			}
 		})
 
