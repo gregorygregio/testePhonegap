@@ -10,7 +10,7 @@ function onDeviceReady() {
 		jQuery.ajax({
 		  url: root + '/posts/1',
 		  type: 'GET',
-      crossDomain: true,
+			dataType   : 'json',
 			success: function(data){
 				console.log(data);
 				jQuery("#testeSpan").text(data.body)
