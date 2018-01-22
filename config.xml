@@ -1,7 +1,8 @@
 <widget id="com.phonegap.helloworld" version="1.0.0"><name>helloworld</name><description>
         Hello World sample application that responds to the deviceready event.
-    </description><author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    </description>
+    <author email="gregorygregio@hotmail.com" href="http://phonegap.com">
+        Gregory
     </author>
     <content src="index.html"/>
     <preference name="DisallowOverscroll" value="true"/>
@@ -85,7 +86,13 @@
     <allow-intent href="geo:*"/>
     <platform name="android">
       <allow-intent href="market:*"/>
+      <access origin="*"/>
+      <allow-intent href="http://*/*"/>
       <allow-intent href="https://*/*"/>
+      <allow-intent href="tel:*"/>
+      <allow-intent href="sms:*"/>
+      <allow-intent href="mailto:*"/>
+      <allow-intent href="geo:*"/>
     </platform>
     <platform name="ios">
       <allow-intent href="itms:*"/>
