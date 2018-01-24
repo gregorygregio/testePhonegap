@@ -3,7 +3,7 @@ document.addEventListener('deviceready', onDeviceReady, false);
 var criarObjetoPaginacao = function(){
 	var root = 'https://jsonplaceholder.typicode.com';
 
-	var _getPageData = (id) => {
+	var _getPageData = function(id){
 		jQuery.ajax({
 			url: root + '/posts/'+id,
 			type: 'GET',
