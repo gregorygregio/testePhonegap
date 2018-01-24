@@ -41,20 +41,22 @@ var criarObjetoPaginacao = function(){
 
 function onDeviceReady() {
 	console.log("device ready");
-
+	alert("antes de criarObjetoPaginacao")
 	var objetoPaginacao = criarObjetoPaginacao();
-
+	alert("depois de criarObjetoPaginacao")
 	jQuery("#btnProximo").click(function(){
+		alert("btnProximo")
 		objetoPaginacao.proximo();
 	})
 
 	jQuery("#btnAnterior").click(function(){
+		alert("btnAnterior")
 		objetoPaginacao.anterior();
 	})
 
 
 
 
-
+alert("antes da primeira chamada")
 	objetoPaginacao.proximo();
 }
