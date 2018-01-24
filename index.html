@@ -19,9 +19,9 @@
 <body>
 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -33,17 +33,26 @@
         <li class="nav-item">
           <a class="nav-link" href="pageTwo.html">Page two</a>
         </li>
-
       </ul>
-    </div>
     </nav>
+    </div>
 
 
     <div class="app">
-        <h1>Welcome</h1>
-        <button id="testeApi"> botao </button>
-        <br>
-        <span id="testeSpan">...</span>
+
+
+        <div class="col-lg-8 col-md-7 col-sm-6">
+          <h4 id="title">Journal</h4>
+          <p class="lead" id="body">Crisp like a new sheet of paper</p>
+        </div>
+
+
+        <div class="row">
+          <button id="btnAnterior" class="btn btn-primary">< Anterior </button>
+
+
+            <button id="btnProximo" class="btn btn-primary"> Proximo ></button>
+        </div>
     </div>
 
     <script type="text/javascript" src="cordova.js"></script>
