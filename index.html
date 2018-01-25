@@ -16,13 +16,15 @@
     <title>Hello World</title>
 </head>
 
+
 <body>
 
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <a class="navbar-brand" href="#">User Info App</a>
+
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="	glyphicon glyphicon-menu-hamburger">aaa</span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -34,25 +36,26 @@
           <a class="nav-link" href="pageTwo.html">Page two</a>
         </li>
       </ul>
-    </nav>
-    </div>
+
+    </div> -->
+  </nav>
 
 
-    <div class="app">
-
-
-        <div class="col-lg-8 col-md-7 col-sm-6">
-          <h4 id="title">Journal</h4>
-          <p class="lead" id="body">Crisp like a new sheet of paper</p>
+    <template id="userPillTemplate">
+        <div class="container">
+          <div class="listItem">
+            <span class="userId">{{:userId}}</span> - <span class="userName">{{:userName}}</span>
+          </div>
         </div>
+    </template>
+
+    <h3 id="pageTitle">Users</h3>
+
+    <div class="app" id="listOfUsers">
 
 
-        <div class="row">
-          <button id="btnAnterior" class="btn btn-primary">< Anterior </button>
 
 
-            <button id="btnProximo" class="btn btn-primary"> Proximo ></button>
-        </div>
     </div>
 
     <script type="text/javascript" src="cordova.js"></script>

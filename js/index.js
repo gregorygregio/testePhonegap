@@ -1,57 +1,22 @@
 document.addEventListener('deviceready', onDeviceReady, false);
 
-var criarObjetoPaginacao = function(){
-	var root = 'https://jsonplaceholder.typicode.com';
+var api = 'https://jsonplaceholder.typicode.com';
 
-	var _getPageData = function(id){
-		jQuery.ajax({
-			url: root + '/posts/'+id,
-			type: 'GET',
-			dataType   : 'json',
-			success: function(data){
-				jQuery("#body").text(data.body)
-				jQuery("#title").text(data.title)
-			},
-			error:function (err) {
+var template = jQuery("#userPillTemplate").clone();
 
-				alert("Ocorreu um erro");
-				jQuery("#body").text(JSON.stringify(err))
-			}
+function getListOf(thing){
+	jQuery.ajax({
+	  url: api + '/'+thing,
+	  method: 'GET'
+	}).then(function(data) {
+	  data.forEach(function(user){
+			var pill = template.html().replace("{{:userId}}", user.id).replace("{{:userName}}", user.name);
+			jQuery("#listOfUsers").append(pill);
 		})
-	}
-
-	var _proximo = function(){
-		_getPageData(this.page)
-		this.page++;
-	}
-
-	var _anterior = function(){
-		if(this.page > 1){
-			_getPageData(this.page)
-			this.page--;
-		}
-	}
-	return {
-		page:1,
-		proximo:_proximo,
-		anterior:_anterior
-	}
+	});
 }
 
 
 function onDeviceReady() {
-	console.log("device ready");
-	var objetoPaginacao = criarObjetoPaginacao();
-	jQuery("#btnProximo").click(function(){
-		objetoPaginacao.proximo();
-	})
-
-	jQuery("#btnAnterior").click(function(){
-		objetoPaginacao.anterior();
-	})
-
-
-
-
-	objetoPaginacao.proximo();
+	getListOf("users")
 }
