@@ -6,13 +6,9 @@ var template = jQuery("#userPillTemplate").clone();
 
 var userClick = function(){
 	var $this = jQuery(this);
-
 	var id = $this.find(".userId").text();
 
 	var cardText = $this.find(".card-text");
-
-
-
 	var cardBody =  $this.find(".card-body");
 
 	if( cardBody.is(":visible") ){
@@ -26,11 +22,6 @@ var userClick = function(){
 		jQuery(".card-body:visible").slideUp(300);
 		cardBody.slideDown(300);
 	}
-
-
-
-
-// alert(id)
 
 }
 
