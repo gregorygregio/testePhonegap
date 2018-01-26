@@ -17,6 +17,12 @@
   background-color: #f2f2f2;
 }
 
+.card-body{
+  display: none;
+}
+
 #listOfUsers{
+  position: relative;
+  max-height: 80vh;
   overflow-y: scroll;
 }

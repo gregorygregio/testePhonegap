@@ -5,8 +5,18 @@ var api = 'https://jsonplaceholder.typicode.com';
 var template = jQuery("#userPillTemplate").clone();
 
 var userClick = function(){
-	var id = jQuery(this).find(".userId").text();
-	alert(id)
+	var $this = jQuery(this);
+	$this.find(".card-title").text("username: " + 1);
+
+
+	jQuery(".card-body:visible").slideUp(300);
+	$this.find(".card-body").slideDown(300);
+
+
+	// var id = $this.find(".userId").text();
+
+// alert(id)
+
 }
 
 var userPillList = [];
@@ -33,7 +43,7 @@ function onDeviceReady() {
 	  	data.forEach(function(user){
 				var pill = jQuery(template.html().replace("{{:userId}}", user.id).replace("{{:userName}}", user.name));
 				pill.click(userClick);
-				userPillList.push( { id: user.id, name: user.name, element: pill } );
+				userPillList.push( { ...user, element: pill } );
 				jQuery("#listOfUsers").append(pill);
 			})
 	});
