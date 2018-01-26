@@ -6,14 +6,29 @@ var template = jQuery("#userPillTemplate").clone();
 
 var userClick = function(){
 	var $this = jQuery(this);
-	$this.find(".card-title").text("username: " + 1);
+
+	var id = $this.find(".userId").text();
+
+	var cardText = $this.find(".card-text");
 
 
-	jQuery(".card-body:visible").slideUp(300);
-	$this.find(".card-body").slideDown(300);
+
+	var cardBody =  $this.find(".card-body");
+
+	if( cardBody.is(":visible") ){
+		cardBody.slideUp(300);
+	} else {
+		getListOf("users/"+id, function(data) {
+			cardText.find(".user-email").text(data.email);
+			cardText.find(".user-username").text(data.username);
+			cardText.find(".user-phone").text(data.phone);
+		});
+		jQuery(".card-body:visible").slideUp(300);
+		cardBody.slideDown(300);
+	}
 
 
-	// var id = $this.find(".userId").text();
+
 
 // alert(id)
 
