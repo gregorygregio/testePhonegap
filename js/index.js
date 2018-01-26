@@ -43,7 +43,7 @@ function onDeviceReady() {
 	  	data.forEach(function(user){
 				var pill = jQuery(template.html().replace("{{:userId}}", user.id).replace("{{:userName}}", user.name));
 				pill.click(userClick);
-				userPillList.push( { ...user, element: pill } );
+				userPillList.push( { id: user.id, name: user.name, element: pill } );
 				jQuery("#listOfUsers").append(pill);
 			})
 	});
