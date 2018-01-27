@@ -44,6 +44,23 @@ Number.prototype.has = function(anotherString){
 		return ( this.toString().indexOf(anotherString) > -1 );
 }
 
+
+function filterList(valueToSearchFor){
+	userPillList.forEach( function(userPill){
+			if( userPill.name.has(valueToSearchFor) || userPill.id.has(valueToSearchFor))
+				userPill.element.show();
+			else
+				userPill.element.hide();
+	})
+}
+
+function clearSearchBar(){
+	var searchBar = jQuery("#searchBar");
+	searchBar.val("")
+	searchBar.keyup();
+	searchBar.focus()
+}
+
 function onDeviceReady() {
 	getListOf("users", function(data) {
 	  	data.forEach(function(user){
@@ -58,13 +75,12 @@ function onDeviceReady() {
 	jQuery("#searchBar").keyup( function(){
 			var $this = jQuery(this);
 			var valueToSearchFor = $this.val();
+			if(valueToSearchFor === "")
+				jQuery("div.input-group-append .input-group-text .fa-trash-o").removeClass("fa-trash-o").addClass("fa-search")
+			else
+				jQuery("div.input-group-append .input-group-text .fa-search").removeClass("fa-search").addClass("fa-trash-o").click(clearSearchBar);
+			filterList(valueToSearchFor);
 
-			userPillList.forEach( function(userPill){
-					if( userPill.name.has(valueToSearchFor) || userPill.id.has(valueToSearchFor))
-						userPill.element.show();
-					else
-						userPill.element.hide();
-			})
-	})
+	});
 
 }
